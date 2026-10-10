@@ -1,0 +1,8 @@
+title: The Hall of Weird
+description: Enshrining the oddities of baseball.
+exclude:
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CONTRIBUTING.md

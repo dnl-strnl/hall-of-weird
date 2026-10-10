@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hall of Weird</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚾</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=DM+Mono:wght@400;500&family=Graduate&family=Oswald:wght@400;500;600&family=Lora:ital,wght@0,400..600;1,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ============ COOPERSTOWN THEME (this page only) ============
+   Cream plaque panels, navy ink, flag red, bunting stripes.
+   Overrides the shared space-gray tokens page-locally.       */
+:root{
+  --navy:#1D2D50; --red:#A6252F; --red-lt:#E0606B; --cream:#F7F1DE; --gold:#E8C15A;
+  --field:#121C33; --field-deep:#1D2D50; --field-raised:#24365C;
+  --chalk:#F7F1DE; --chalk-dim:#9FA9BF;
+  --amber:#E0606B; --clay:#C97B5A;
+  --line:rgba(247,241,222,.22); --line-strong:rgba(247,241,222,.5);
+  --disp:'Graduate',serif;
+  --slab:'Graduate',serif; --cond:'Oswald',sans-serif; --serif:'Lora',Georgia,serif;
+}
+body{
+  background:
+    repeating-linear-gradient(90deg, rgba(247,241,222,.04) 0 1px, transparent 1px 27px),
+    #121C33;
+}
+/* flag bunting across the very top of the page */
+body::before{content:"";display:block;height:12px;
+  background:repeating-linear-gradient(90deg, var(--red) 0 26px, var(--cream) 26px 52px);
+  border-bottom:3px solid var(--cream)}
+.masthead .title{font-weight:400;letter-spacing:.02em}
+.masthead .eyebrow{color:var(--red-lt);font-family:var(--cond);font-weight:500;letter-spacing:.24em;font-size:13px}
+
+.wrap{max-width:1220px;margin:0 auto;padding:28px 22px 80px}
+.masthead .sub{max-width:640px;font-family:var(--serif);font-size:16px;line-height:1.6}
+
+/* grid-auto-rows:1fr equalizes every pane to the tallest in its wing */
+.exhibits{margin-top:34px;display:grid;grid-auto-rows:1fr;gap:26px}
+
+.banner{position:relative;display:grid;grid-template-columns:230px 360px 1fr;gap:0 30px;
+  align-items:center;padding:40px 32px 28px;
+  background:var(--navy);border:2px solid var(--cream);
+  box-shadow:inset 0 0 0 6px var(--navy), inset 0 0 0 7px rgba(247,241,222,.5),
+    0 3px 14px rgba(0,0,0,.45);
+  overflow:hidden}
+/* bunting band across the top of every plaque */
+.banner::before{content:"";position:absolute;top:0;left:0;right:0;height:10px;
+  background:repeating-linear-gradient(90deg, var(--red) 0 18px, var(--cream) 18px 36px);
+  border-bottom:2px solid var(--cream)}
+.banner:nth-child(even){grid-template-columns:1fr 360px 230px}
+.banner:nth-child(even) .bignum{order:3;text-align:right}
+.banner:nth-child(even) .hshot{order:2}
+.banner:nth-child(even) .plaque{order:1}
+
+.bignum{font-family:var(--slab);font-weight:400;line-height:.95;color:var(--cream);
+  font-size:clamp(44px,5.5vw,68px);letter-spacing:.01em}
+.bignum small{display:block;font-family:var(--cond);font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;font-size:19px;color:var(--gold);margin-top:12px;
+  line-height:1.35;text-wrap:balance}
+
+/* big uncropped photo in a cream frame */
+.hshot{position:relative;min-width:220px;min-height:280px;border:6px solid var(--cream);
+  background:#0F1830;justify-self:center;font-size:0;
+  box-shadow:0 3px 14px rgba(0,0,0,.45)}
+.hshot img{display:block;height:440px;width:auto;max-width:340px;object-fit:cover;
+  filter:sepia(.26) saturate(.8) contrast(1.04)}
+.pname a,.pmeta a{color:inherit;text-decoration:none}
+.pname a:hover{color:var(--red-lt)}
+.pmeta a:hover{color:var(--red-lt);text-decoration:underline}
+.hshot .fb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--slab);font-weight:400;font-size:64px;color:var(--chalk-dim)}
+
+.plaque{min-width:0}
+.pname{font-family:var(--slab);font-weight:400;font-size:clamp(26px,3.2vw,36px);
+  line-height:1.12;color:var(--cream)}
+.pmeta{font-family:var(--cond);font-weight:500;font-size:15px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--chalk-dim);margin-top:7px}
+.ptitle{display:inline-block;font-family:var(--cond);font-size:13.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--cream);background:var(--red);
+  padding:5px 14px;margin-top:14px;font-weight:600;line-height:1.6}
+.ptitle::before{content:"★ "}
+.ptitle::after{content:" ★"}
+.pblurb{margin-top:14px;font-family:var(--serif);font-size:17px;line-height:1.68;
+  color:#EDE7D3;max-width:58ch}
+.detector{margin-top:16px;font-family:var(--mono);font-size:12px;color:var(--chalk-dim);
+  border:1px dashed var(--line-strong);padding:7px 12px;display:inline-block}
+.detector::before{content:"DETECTOR ▸ ";color:var(--amber);letter-spacing:.12em}
+.detector.arch::before{content:"RECORD BOOK ▸ ";color:var(--clay)}
+.detector.tale{border-style:dotted}
+.detector.tale::before{content:"STRANGE BUT TRUE ▸ ";color:var(--clay)}
+
+.winghead{margin:56px 0 6px;border-top:4px double var(--cream);padding-top:28px}
+.winghead .eyebrow{margin-bottom:2px;color:var(--red-lt);font-family:var(--cond);
+  font-weight:500;letter-spacing:.24em;font-size:13px}
+.winghead h2{font-family:var(--slab);font-weight:400;font-size:clamp(24px,3.8vw,38px);
+  margin:0;color:var(--cream)}
+.winghead h2 em{font-style:normal;color:var(--red-lt)}
+.winghead p{font-family:var(--serif);font-size:15px;color:var(--chalk-dim);margin:8px 0 0;max-width:60ch}
+.hshot img.tlogo{position:static;width:240px;height:280px;object-fit:contain;padding:30px;max-width:none}
+
+.logostrip{display:grid;gap:7px;margin-top:13px;justify-content:start}
+.logostrip .lg{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;background:var(--cream);border:1px solid var(--line)}
+.logostrip .lg img{width:76%;height:76%;object-fit:contain}
+
+/* a wing with no inductees yet — an honest, intentional empty pedestal */
+.wing-empty{border:2px dashed var(--line-strong);padding:52px 24px;text-align:center;
+  font-family:var(--cond);letter-spacing:.22em;font-size:13px;color:var(--chalk-dim);
+  text-transform:uppercase}
+.wing-empty b{display:block;font-family:var(--slab);font-weight:400;font-size:19px;
+  color:var(--cream);letter-spacing:.06em;margin-bottom:10px}
+
+@media (max-width:860px){
+  /* squeeze: one full exhibit ≈ one phone screen */
+  .wrap{padding:18px 14px 60px}
+  .masthead .title{font-size:clamp(24px,7vw,54px)}
+  .banner,.banner:nth-child(even){grid-template-columns:1fr;gap:10px;text-align:center;
+    padding:24px 16px 16px;align-content:center}
+  .banner:nth-child(even) .bignum{order:0;text-align:center}
+  .banner:nth-child(even) .hshot{order:0}
+  .banner .hshot{justify-self:center;border-width:4px;min-width:0;min-height:0}
+  .hshot img{height:220px;max-width:min(270px,74vw)}
+  .hshot .fb{font-size:40px}
+  /* one-line stat lockup: number + label on the same baseline, auto-fit to width */
+  .bignum{display:flex;align-items:baseline;justify-content:center;gap:.3em;
+    white-space:nowrap;text-align:center;
+    font-size:min(34px, calc((100vw - 72px) / var(--numems, 8)))}
+  .bignum small{display:inline;font-size:.5em;margin-top:0;letter-spacing:.12em;line-height:1}
+  .pname{font-size:clamp(22px,6.5vw,26px)}
+  .pmeta{font-size:12px;margin-top:4px}
+  .ptitle{display:none}
+  .pblurb{margin:16px auto 0;font-size:14.5px;line-height:1.52}
+  .detector{margin-top:20px;font-size:10px;padding:5px 9px}
+  .logostrip{justify-content:center}
+  .exhibits{gap:18px;margin-top:24px}
+}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="eyebrow">EST. 2026</div>
+    <div class="title">THE HALL OF <em>WEIRD</em></div>
+    <p class="sub">Enshrining the oddities of baseball. Every inductee was discovered by a
+    <b>detector</b> — an extreme-value query run across all of MLB history (1871–present).
+    Nobody here was merely great — they are here for being <em>unbelievable</em>.</p>
+  </header>
+
+  <div class="exhibits" id="exhibits"></div>
+
+  <!-- Annexes stay shelved (hidden) until their wing has an inductee -->
+  <div id="wing-teams" hidden>
+    <div class="winghead">
+      <div class="eyebrow">ANNEX B — FRANCHISE ANOMALIES</div>
+      <h2>THE TEAM <em>WING</em></h2>
+      <p>Entire rosters inducted together. Detectors run over every team-season since 1871.</p>
+    </div>
+    <div class="exhibits" id="exhibits-teams"></div>
+  </div>
+
+  <div id="wing-tales" hidden>
+    <div class="winghead">
+      <div class="eyebrow">ANNEX C — FROM DAD'S BOOKSHELF</div>
+      <h2>STRANGE BUT <em>TRUE</em></h2>
+      <p>After the Scholastic classic. Tales no stat table can hold — umpire brawls, lightning
+      strikes, stolen first bases, and one exploding grapefruit. Documented, not detected.</p>
+    </div>
+    <div class="exhibits" id="exhibits-tales"></div>
+  </div>
+
+</div>
+
+<script>
+/* Inductees live as one YAML file each in _data/inductees/; Jekyll compiles
+   them into exhibits.json at build time. This script just renders.
+   All imagery is external: MLB CDN headshots/logos and curated img: URLs. */
+const hs = id => `https://img.mlbstatic.com/mlb-photos/image/upload/w_426,q_100/v1/people/${id}/headshot/67/current`;
+const teamLogo = id => `https://www.mlbstatic.com/team-logos/${id}.svg`;
+const initials = n => n.split(' ').map(w => w[0]).join('');
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+const brefURL = path => 'https://www.baseball-reference.com/' + path;
+
+function logoStrip(ids){
+  if (!ids) return '';
+  // balance the rows: 14 teams → 7+7, never a 9+5 ragged wrap (max 8 per row)
+  const cols = Math.ceil(ids.length / Math.ceil(ids.length / 8));
+  return `<div class="logostrip" style="grid-template-columns:repeat(${cols},34px)">` + ids.map(id =>
+    `<span class="lg"><img src="${teamLogo(id)}" alt="" loading="lazy"></span>`
+  ).join('') + `</div>`;
+}
+
+function hshotHTML(w){
+  // all-external portrait cascade: curated URL → MLB CDN headshot → team logo → initials
+  if (w.img) return `
+      <div class="fb">${w.mono || initials(w.name)}</div>
+      <img src="${w.img}" alt="${esc(w.name)}"
+        onload="this.previousElementSibling.style.display='none'"
+        onerror="this.remove()">`;
+  if (w.mlbam) return `
+      <div class="fb">${initials(w.name)}</div>
+      <img src="${hs(w.mlbam)}" alt="${esc(w.name)}"
+        onload="this.previousElementSibling.style.display='none'"
+        onerror="this.remove()">`;
+  if (w.logoId) return `<img class="tlogo" src="${teamLogo(w.logoId)}" alt="">`;
+  return `<div class="fb">${w.mono || initials(w.name)}</div>`;
+}
+
+const bannerHTML = (w) => {
+  const b = w.bref || [];
+  const nameHTML = b[0] ? `<a href="${brefURL(b[0])}" target="_blank" rel="noopener">${w.name}</a>` : w.name;
+  const metaTxt = `${w.years} · ${w.team}`;
+  const metaHTML = (b[1] || b[0]) ? `<a href="${brefURL(b[1] || b[0])}" target="_blank" rel="noopener">${metaTxt}</a>` : metaTxt;
+  // estimated width of "NUM label" in em, for the mobile one-line lockup
+  const numems = (String(w.num).length * 0.78 + 0.4 + String(w.numSub).length * 0.33).toFixed(2);
+  return `
+  <section class="banner" style="--numems:${numems}">
+    <div class="bignum">${w.num}<small>${w.numSub}</small></div>
+    <div class="hshot">${hshotHTML(w)}</div>
+    <div class="plaque">
+      <div class="pname">${nameHTML}</div>
+      <div class="pmeta">${metaHTML}</div>
+      <div><span class="ptitle">${w.line}</span></div>
+      <p class="pblurb">${w.blurb}</p>
+      ${logoStrip(w.logos)}
+      <div class="detector${w.wing === 'tales' ? ' tale' : w.archival ? ' arch' : ''}">${w.detector}</div>
+    </div>
+  </section>`;
+};
+
+const EMPTY = `
+  <div class="wing-empty"><b>★ AWAITING ITS FIRST INDUCTEE ★</b>
+  <a href="https://github.com/dnl-strnl/hall-of-weird/blob/main/CONTRIBUTING.md"
+  target="_blank" rel="noopener">nominations open</a></div>`;
+
+function render(all){
+  all.sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+  const stats = all.filter(e => e.wing === 'stats');
+  document.getElementById('exhibits').innerHTML = stats.length ? stats.map(bannerHTML).join('') : EMPTY;
+  for (const wing of ['teams', 'tales']){
+    const list = all.filter(e => e.wing === wing);
+    document.getElementById('wing-' + wing).hidden = !list.length;
+    document.getElementById('exhibits-' + wing).innerHTML = list.map(bannerHTML).join('');
+  }
+}
+fetch('exhibits.json')
+  .then(r => r.ok ? r.json() : [])
+  .then(render)
+  .catch(() => render([]));
+</script>
+</body>
+</html>

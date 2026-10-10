@@ -1,0 +1,29 @@
+/* ============================================================
+   shared.css — design tokens & base layout (space-gray theme).
+   index.html's Cooperstown theme overrides the tokens page-locally.
+   ============================================================ */
+:root{
+  --field:#1C1E23; --field-deep:#141519; --field-raised:#272A31;
+  --chalk:#E9EAEE; --chalk-dim:#94979F;
+  --amber:#F0B429; --clay:#C4664A;
+  --line:rgba(233,234,238,.13); --line-strong:rgba(233,234,238,.28);
+  --disp:'Bricolage Grotesque',system-ui,sans-serif;
+  --ui:'Archivo',system-ui,sans-serif;
+  --mono:'DM Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--field);color:var(--chalk);font-family:var(--ui);
+  font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px}
+
+.masthead{border-bottom:2px solid var(--line-strong);padding-bottom:18px;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--chalk-dim);margin:0 0 6px}
+.title{font-family:var(--disp);font-weight:800;font-size:clamp(30px,5.5vw,54px);
+  line-height:.92;letter-spacing:-.03em;margin:0}
+.title em{font-style:normal;color:var(--amber)}
+
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
