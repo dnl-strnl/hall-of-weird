@@ -1,0 +1,23 @@
+name: "Eddie Gaedel"
+wing: stats
+date: "1951-08-19"
+years: "1951"
+team: "St. Louis Browns"
+num: "3′7″"
+numSub: "tall · uniform #⅛"
+title: "The Strike Zone That Wasn't"
+blurb: |
+  <a href="https://sabr.org/bioproj/person/bill-veeck/" target="_blank" rel="noopener">Bill
+  Veeck</a>'s masterpiece: a 3-foot-7 performer signed in secret, sent to pinch-hit
+  wearing number ⅛. Crouched, his strike zone measured about an inch and a half. He walked
+  on four pitches, was replaced at first base, and was
+  <a href="https://sabr.org/bioproj/person/eddie-gaedel/" target="_blank" rel="noopener">banned
+  by the league office</a> the next day — and ever since, no big leaguer has debuted
+  without the Commissioner first approving the contract. One plate appearance, one
+  permanent rule. Career on-base percentage: 1.000. Retired perfect.
+line: "Aug 19, 1951 · 1 PA · 1 BB · 1.000 OBP"
+detector: "MIN height(inches) across all players"
+# ---- optional ----
+src: "https://sabr.org/gamesproj/game/august-19-1951-eddie-gaedel-pinch-hits-for-st-louis-browns-as-smallest-batter-in-baseball/"
+mlbam: 114507
+bref: ["players/g/gaedeed01.shtml", "teams/SLB/1951.shtml"]
