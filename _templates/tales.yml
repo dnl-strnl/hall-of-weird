@@ -1,0 +1,27 @@
+# THE HALL OF WEIRD — TALES wing: documented strange-but-true stories.
+# Not detected — witnessed, then verified. No src, no plaque.
+# Copy to _data/inductees/<slug>.yml — see CONTRIBUTING.md for slug rules.
+
+name:                # display name — a person, or the tale itself
+wing: tales
+date:                # "YYYY-MM-DD", or "YYYY" when history is only sure of the
+                     # year (quote it). Sets wall position.
+years:               # era line under the name
+team:                # free text — a club, a ballpark, "amateur era"…
+num:                 # THE giant number — needn't be a stat; any jaw-dropper
+numSub:              # caption under the number (quote it if it contains a colon)
+title:               # exhibit title (not rendered yet — the star band shows `line`)
+blurb:               # the tale, a few sentences, block scalar (blurb: |). If the
+                     # record is legend rather than fact, SAY SO on the plaque.
+line:                # short ·-separated line for the red star band
+detector:            # one-line claim, not a query — this wing's chip always
+                     # reads STRANGE BUT TRUE ▸
+
+# ---- optional ----
+#order:              # tiebreaker when two entries share a date
+#mlbam:              # MLB StatsAPI person id → CDN headshot
+#img:                # external period image URL (https only, no files in repo)
+#bref:               # Baseball-Reference path(s), incl. bullpen/ pages; omit if none
+#src:                # published account URL — effectively REQUIRED in this wing
+#mono:               # fallback-tile initials when no portrait resolves
+#archival:           # true — tales are record-book finds by nature

@@ -1,0 +1,27 @@
+# THE HALL OF WEIRD — STATS wing: one person, one impossible number.
+# Copy to _data/inductees/<slug>.yml — see CONTRIBUTING.md for slug rules.
+
+name:                # display name, as it should appear on the plaque
+wing: stats
+date:                # when it ACTUALLY happened — "YYYY-MM-DD", or "YYYY" for a
+                     # season/career-scale oddity (quote it). Sets wall position.
+years:               # era line under the name — "YYYY–YY"
+team:                # free text
+num:                 # THE giant number — any short string
+numSub:              # caption under the number
+title:               # exhibit title (not rendered yet — the star band shows `line`)
+blurb:               # the story, a few sentences, block scalar (blurb: |);
+                     # inline <a href="…">links</a> allowed
+line:                # short ·-separated stat line for the red star band
+detector:            # the query that found them — "MAX … WHERE …"
+
+# ---- optional ----
+#order:              # tiebreaker when two entries share a date
+#mlbam:              # MLB StatsAPI person id → CDN headshot
+#img:                # external portrait URL (beats mlbam; https only, no files in repo)
+#bref:               # [player page, season/box page] Baseball-Reference paths
+#src:                # published account URL — the chip links to it; REQUIRED if archival
+#mono:               # fallback-tile initials when no portrait resolves
+#logos:              # MLB team ids → logo strip — [id, id]
+#archival:           # true if it's a record-book find, not a re-runnable query —
+                     # chip reads RECORD BOOK ▸ and src becomes required

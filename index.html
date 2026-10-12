@@ -70,6 +70,8 @@ body::before{content:"";display:block;height:12px;
 .pname a,.pmeta a{color:inherit;text-decoration:none}
 .pname a:hover{color:var(--red-lt)}
 .pmeta a:hover{color:var(--red-lt);text-decoration:underline}
+.pblurb a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.pblurb a:hover{color:var(--red-lt)}
 .hshot .fb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   font-family:var(--slab);font-weight:400;font-size:64px;color:var(--chalk-dim)}
 
@@ -91,14 +93,10 @@ body::before{content:"";display:block;height:12px;
 .detector.arch::before{content:"RECORD BOOK ▸ ";color:var(--clay)}
 .detector.tale{border-style:dotted}
 .detector.tale::before{content:"STRANGE BUT TRUE ▸ ";color:var(--clay)}
+.detector a{color:inherit;text-decoration:none}
+.detector a:hover{color:var(--cream);text-decoration:underline}
 
-.winghead{margin:56px 0 6px;border-top:4px double var(--cream);padding-top:28px}
-.winghead .eyebrow{margin-bottom:2px;color:var(--red-lt);font-family:var(--cond);
-  font-weight:500;letter-spacing:.24em;font-size:13px}
-.winghead h2{font-family:var(--slab);font-weight:400;font-size:clamp(24px,3.8vw,38px);
-  margin:0;color:var(--cream)}
-.winghead h2 em{font-style:normal;color:var(--red-lt)}
-.winghead p{font-family:var(--serif);font-size:15px;color:var(--chalk-dim);margin:8px 0 0;max-width:60ch}
+.wingrule{border:0;border-top:1px solid var(--cream);opacity:.3;margin:56px 0 40px}
 .hshot img.tlogo{position:static;width:240px;height:280px;object-fit:contain;padding:30px;max-width:none}
 
 .logostrip{display:grid;gap:7px;margin-top:13px;justify-content:start}
@@ -146,29 +144,22 @@ body::before{content:"";display:block;height:12px;
     <div class="eyebrow">EST. 2026</div>
     <div class="title">THE HALL OF <em>WEIRD</em></div>
     <p class="sub">Enshrining the oddities of baseball. Every inductee was discovered by a
-    <b>detector</b> — an extreme-value query run across all of MLB history (1871–present).
-    Nobody here was merely great — they are here for being <em>unbelievable</em>.</p>
+    <b>detector</b> — an extreme-value query run across all of MLB history (1871–present) —
+    or pulled from the record book, where the weirdness runs all the way back to baseball's
+    prehistory. Nobody is here for being great — they are here for being <em>unbelievable</em>.</p>
   </header>
 
   <div class="exhibits" id="exhibits"></div>
 
-  <!-- Annexes stay shelved (hidden) until their wing has an inductee -->
+  <!-- Annexes stay shelved (hidden) until their wing has an inductee;
+       an unlabeled thin rule is the only break between wings -->
   <div id="wing-teams" hidden>
-    <div class="winghead">
-      <div class="eyebrow">ANNEX B — FRANCHISE ANOMALIES</div>
-      <h2>THE TEAM <em>WING</em></h2>
-      <p>Entire rosters inducted together. Detectors run over every team-season since 1871.</p>
-    </div>
+    <hr class="wingrule">
     <div class="exhibits" id="exhibits-teams"></div>
   </div>
 
   <div id="wing-tales" hidden>
-    <div class="winghead">
-      <div class="eyebrow">ANNEX C — FROM DAD'S BOOKSHELF</div>
-      <h2>STRANGE BUT <em>TRUE</em></h2>
-      <p>After the Scholastic classic. Tales no stat table can hold — umpire brawls, lightning
-      strikes, stolen first bases, and one exploding grapefruit. Documented, not detected.</p>
-    </div>
+    <hr class="wingrule">
     <div class="exhibits" id="exhibits-tales"></div>
   </div>
 
@@ -226,7 +217,8 @@ const bannerHTML = (w) => {
       <div><span class="ptitle">${w.line}</span></div>
       <p class="pblurb">${w.blurb}</p>
       ${logoStrip(w.logos)}
-      <div class="detector${w.wing === 'tales' ? ' tale' : w.archival ? ' arch' : ''}">${w.detector}</div>
+      <div class="detector${w.wing === 'tales' ? ' tale' : w.archival ? ' arch' : ''}">${
+        w.src ? `<a href="${w.src}" target="_blank" rel="noopener">${w.detector}</a>` : w.detector}</div>
     </div>
   </section>`;
 };
@@ -237,7 +229,10 @@ const EMPTY = `
   target="_blank" rel="noopener">nominations open</a></div>`;
 
 function render(all){
-  all.sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+  // the wall hangs in chronological order of the actual occurrence ("YYYY-MM-DD" or
+  // "YYYY", compared lexically); undated entries sink to the end, `order` breaks ties
+  const when = e => String(e.date ?? '9999');
+  all.sort((a, b) => when(a).localeCompare(when(b)) || (a.order ?? 0) - (b.order ?? 0));
   const stats = all.filter(e => e.wing === 'stats');
   document.getElementById('exhibits').innerHTML = stats.length ? stats.map(bannerHTML).join('') : EMPTY;
   for (const wing of ['teams', 'tales']){

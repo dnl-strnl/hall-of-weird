@@ -1,0 +1,27 @@
+# THE HALL OF WEIRD — TEAMS wing: a whole franchise-season inducted together.
+# Copy to _data/inductees/<slug>.yml — see CONTRIBUTING.md for slug rules.
+
+name:                # display name — "YYYY Team Name" reads best
+wing: teams
+date:                # "YYYY" for a season-long anomaly, "YYYY-MM-DD" if one game
+                     # defines it (quote it). Sets wall position.
+years:               # in THIS wing the era line carries the record — "YYYY · W–L"
+team:                # free text
+num:                 # THE giant number — a team-sized impossibility
+numSub:              # caption under the number
+title:               # exhibit title (not rendered yet — the star band shows `line`)
+blurb:               # the story of the season, block scalar (blurb: |);
+                     # inline <a href="…">links</a> allowed
+line:                # short ·-separated season line for the red star band
+detector:            # the query, run over team-seasons
+
+# ---- optional ----
+#order:              # tiebreaker when two entries share a date
+#img:                # external team photo URL (https only, no files in repo)
+#logoId:             # MLB team id → modern logo AS the portrait (existing franchises)
+#bref:               # [team/season page] Baseball-Reference path(s)
+#src:                # published account URL — the chip links to it; REQUIRED if archival
+#mono:               # fallback-tile initials when no portrait resolves
+#logos:              # MLB team ids → logo strip — [id, id]
+#archival:           # true if it's a record-book find, not a re-runnable query —
+                     # chip reads RECORD BOOK ▸ and src becomes required
