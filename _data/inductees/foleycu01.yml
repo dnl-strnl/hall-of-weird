@@ -1,0 +1,31 @@
+name: "Curry Foley"
+wing: stats
+date: "1882-05-25"
+years: "1879–83"
+team: "Buffalo Bisons"
+num: "1st"
+numSub: "undisputed cycle in MLB history"
+title: "The Cycle, Nearly Backwards"
+blurb: |
+  In the first inning he cleared the bases with a grand slam over the left-field fence —
+  his second slam in six days, and only the fourth in NL history. Then a triple in the
+  second, a single in the third, a double in the fifth — by SABR's account.
+  <a href="https://www.baseball-almanac.com/players/player.php?p=foleycu01" target="_blank" rel="noopener">Baseball
+  Almanac</a> puts the single in the eighth, after the double, which would make it a
+  perfect reverse natural cycle — though the Almanac's own reverse-order list pointedly
+  omits him. Exactly backwards or nearly backwards, it came to four hits, ten total bases,
+  and four runs in six trips of a 20–1 demolition of Cleveland. The phrase "hitting for
+  the cycle" wouldn't
+  be coined for decades — nobody in the park knew they'd watched the first one nobody
+  disputes (<a href="https://www.retrosheet.org/cycles.htm" target="_blank" rel="noopener">Retrosheet</a>
+  and <a href="https://www.baseball-reference.com/bullpen/Cycle" target="_blank" rel="noopener">Baseball-Reference</a>
+  still credit George Hall's murky 1876 cycle).
+  The two May slams were a first of their own: no one had ever hit two in a season.
+line: "May 25, 1882 · HR(1) 3B(2) 1B(3) 2B(5)"
+detector: "FIRST undisputed cycle in major-league history"
+# ---- optional ----
+archival: true
+src: "https://sabr.org/gamesproj/game/may-25-1882-buffalos-curry-foley-completes-first-cycle-in-major-leagues-with-grand-slam/"
+mlbam: 114279
+img: "https://upload.wikimedia.org/wikipedia/commons/6/63/Curry_Foley_cropped.jpg"
+bref: ["players/f/foleycu01.shtml", "teams/BUF/1882.shtml"]
