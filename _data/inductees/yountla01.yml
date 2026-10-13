@@ -1,0 +1,25 @@
+name: "Larry Yount"
+wing: stats
+date: "1971-09-15"
+years: "1971"
+team: "Houston Astros"
+num: "-.--"
+numSub: "career ERA · 0 ER over 0 IP"
+title: "The Null Value"
+blurb: |
+  September 15, 1971: the Astros summon the 21-year-old to pitch the ninth
+  against Atlanta. Once announced, he is officially in the game — and during his
+  warmup tosses, his elbow gives out. He leaves without facing a batter and never
+  makes it back. The books credit him with one game and nothing else: zero
+  innings, zero batters, zero pitches — an ERA of 0 over 0, mathematically undefined.
+  Kid brother
+  <a href="https://www.baseball-reference.com/players/y/yountro01.shtml" target="_blank" rel="noopener">Robin</a>
+  collected 3,142 hits and a plaque in Cooperstown. The Younts
+  played 2,857 big-league games; exactly one of them is empty.
+line: "Sep 15, 1971 · 1 G · 0 IP · 0 BF · 0 pitches · ERA -.-- (0÷0)"
+detector: "ONLY pitcher WHERE career G ≥ 1 AND career BF = 0"
+# ---- optional ----
+mlbam: 124720
+img: "https://baseballhall.org/sites/default/files/styles/story_popup_thumb_540/public/islandora_images/Yount%2C%20Larry.jpg.jpeg?itok=Fy7sGDOr"  # HOF archive photo (Drupal itok token — stable derivative)
+bref: ["players/y/yountla01.shtml", "boxes/HOU/HOU197109150.shtml"]
+logoId: 117
