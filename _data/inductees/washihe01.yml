@@ -1,0 +1,25 @@
+name: "Herb Washington"
+wing: stats
+date: "1974-04-04"
+years: "1974–75"
+team: "Oakland Athletics"
+num: "0"
+numSub: "career at-bats"
+title: "The Designated Runner"
+blurb: |
+  A <a href="https://sabr.org/journal/article/designated-runner-herb-washington/" target="_blank" rel="noopener">world-record
+  sprinter</a> who had not played baseball since high school, signed by
+  <a href="https://sabr.org/bioproj/person/charlie-finley/" target="_blank" rel="noopener">Charlie
+  Finley</a> purely to run. 105 games, 33 runs, 31 steals — and he never once stood in
+  the batter's box or took the field. His 1975 Topps card lists his position as
+  "Pinch Run." No other card in history says that. He was also thrown out seventeen
+  times in forty-eight attempts — including a pickoff by <a href="https://www.baseball-reference.com/players/m/marshmi01.shtml" target="_blank" rel="noopener">Mike
+  Marshall</a> in Game Two of the World Series, caught leaning the wrong way in the one
+  job he had — and collected a full Series share of $22,210 without taking a swing.
+line: "105 G · 0 AB · 33 R · 31 SB · 17 CS (65%)"
+detector: "MAX career runs WHERE career PA = 0"
+# ---- optional ----
+src: "https://sabr.org/bioproj/person/herb-washington/"
+mlbam: 123963
+img: "https://baseballhall.org/sites/default/files/styles/story_popup_thumb_540/public/Washington-Herb-OA74-120_HS_NBLMcWilliams.jpg.jpeg?itok=ZPp6QMUV"  # HOF archive photo (Drupal itok token — stable derivative)
+bref: ["players/w/washihe01.shtml", "teams/OAK/1974.shtml"]
