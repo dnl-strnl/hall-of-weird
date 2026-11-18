@@ -1,0 +1,19 @@
+name: "Terry Felton"
+wing: stats
+date: "1979"
+years: "1979–82"
+team: "Minnesota Twins"
+num: "0–16"
+numSub: "career record"
+title: "The Winless Wonder"
+blurb: |
+  The most career losses without ever recording a win. Sixteen decisions, sixteen
+  defeats — and somehow three saves along the way, meaning he preserved wins for
+  everyone but himself. His stuff wasn't even bad: nearly a strikeout per two innings.
+  Baseball simply, categorically, refused to let him win. He was out of the majors at 24.
+line: "55 G · 0 W · 16 L · 3 SV · 4.99 ERA"
+detector: "MAX career L WHERE W = 0"
+# ---- optional ----
+mlbam: 114058
+img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfGAJLvYLSGWM2_y7mwtDaJx0DYZVxtSxBu3VTdX11gGdVcOG0iFCnzvcq&s=10"  # Google Images thumbnail of a Twins card photo (326×500)
+bref: ["players/f/feltote01.shtml", "teams/MIN/1982.shtml"]
